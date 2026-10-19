@@ -1,0 +1,36 @@
+{
+  "name": "devly",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Devly — A home for curious developers. Learn something new. Build it. Run it. Understand it.",
+  "packageManager": "pnpm@11.6.0",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:packages": "npx tsc -p packages/protocol/tsconfig.json && npx tsc -p packages/core/tsconfig.json && npx tsc -p packages/mascot/tsconfig.json && npx tsc -p packages/execution/tsconfig.json && npx tsc -p packages/agents/tsconfig.json",
+    "build:webview": "cd apps/webview && npx vite build",
+    "build:extension": "cd apps/extension && node esbuild.mjs",
+    "dev:webview": "cd apps/webview && npx vite",
+    "watch": "cd apps/extension && node esbuild.mjs --watch",
+    "typecheck": "npm run build:packages",
+    "lint": "echo ok",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "vitest run tests/e2e",
+    "discover": "npx tsc -p packages/core/tsconfig.json && node scripts/discover-daily.mjs",
+    "try-live:smoke": "npx tsc -p packages/protocol/tsconfig.json && npx tsc -p packages/core/tsconfig.json && npx tsc -p packages/execution/tsconfig.json && node scripts/try-live-smoke.mjs",
+    "package": "npm run build && cd apps/extension && npx vsce package --no-dependencies -o ../../devly.vsix",
+    "clean": "rm -rf packages/*/dist apps/webview/dist apps/extension/dist apps/extension/media apps/extension/content"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

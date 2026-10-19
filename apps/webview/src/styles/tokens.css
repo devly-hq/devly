@@ -1,0 +1,108 @@
+/* Devly — Terminal / Phosphor.
+   Fonts stay local: VS Code UI font, with Space Grotesk / JetBrains Mono
+   used only when the user already has them installed. No remote font loads. */
+
+:root,
+[data-theme="phosphor"] {
+  --devly-bg: #05090b;
+  --devly-surface: #0b1317;
+  --devly-elevated: #101b20;
+  --devly-hover: #122026;
+  --devly-border: #164249;
+
+  --devly-accent: #56dddd;
+  --devly-accent-hover: #2ce6e6;
+  --devly-accent-muted: color-mix(in srgb, #56dddd 16%, transparent);
+  --devly-violet: #9462ff;
+
+  --devly-text: #e2f5f5;
+  --devly-text-secondary: #83999f;
+  --devly-text-muted: #6d848a;
+
+  --devly-success: #32d5a4;
+  --devly-warning: #f5b85c;
+  --devly-error: #ff667a;
+
+  --devly-radius-sm: 6px;
+  --devly-radius: 8px;
+  --devly-radius-lg: 10px;
+
+  --devly-display: "Space Grotesk", "Avenir Next", "Segoe UI", var(--vscode-font-family, ui-sans-serif), system-ui, sans-serif;
+  --devly-font: var(--vscode-font-family, ui-sans-serif), system-ui, sans-serif;
+  --devly-mono: "JetBrains Mono", "SF Mono", "Cascadia Code", var(--vscode-editor-font-family, ui-monospace), monospace;
+
+  --devly-shade-body: #070b0d;
+  --devly-shade-glow: #56dddd;
+  --devly-shade-eye: #56dddd;
+  --devly-shade-rim: #2ce6e6;
+
+  --devly-ease: 150ms ease;
+  --devly-space-1: 4px;
+  --devly-space-2: 8px;
+  --devly-space-3: 12px;
+  --devly-space-4: 16px;
+  --devly-space-5: 20px;
+}
+
+/* Same terminal surfaces, purple eye glow. */
+[data-theme="phosphor-violet"] {
+  --devly-shade-glow: #9462ff;
+  --devly-shade-eye: #c4b5fd;
+  --devly-shade-rim: #9462ff;
+}
+
+[data-theme="obsidian-violet"] {
+  --devly-bg: #0b0b0d;
+  --devly-surface: #151518;
+  --devly-elevated: #1c1c21;
+  --devly-hover: #202025;
+  --devly-border: #2a2a30;
+  --devly-accent: #a78bfa;
+  --devly-accent-hover: #c4b5fd;
+  --devly-accent-muted: color-mix(in srgb, #a78bfa 18%, transparent);
+  --devly-shade-glow: #a78bfa;
+  --devly-shade-rim: #7c3aed;
+  --devly-shade-eye: #f8fafc;
+}
+
+[data-theme="midnight-cyan"] {
+  --devly-bg: #070b0f;
+  --devly-surface: #0f1419;
+  --devly-elevated: #161c22;
+  --devly-hover: #1b232b;
+  --devly-border: #24303a;
+  --devly-accent: #22d3ee;
+  --devly-accent-hover: #67e8f9;
+  --devly-accent-muted: color-mix(in srgb, #22d3ee 16%, transparent);
+  --devly-shade-glow: #22d3ee;
+  --devly-shade-rim: #0891b2;
+  --devly-shade-eye: #ecfeff;
+}
+
+[data-theme="carbon-mint"] {
+  --devly-bg: #080b0a;
+  --devly-surface: #111614;
+  --devly-elevated: #171d1a;
+  --devly-hover: #1c2420;
+  --devly-border: #27332d;
+  --devly-accent: #34d399;
+  --devly-accent-hover: #6ee7b7;
+  --devly-accent-muted: color-mix(in srgb, #34d399 16%, transparent);
+  --devly-shade-glow: #34d399;
+  --devly-shade-rim: #059669;
+  --devly-shade-eye: #ecfdf5;
+}
+
+[data-theme="graphite-amber"] {
+  --devly-bg: #0c0b09;
+  --devly-surface: #161410;
+  --devly-elevated: #1d1a15;
+  --devly-hover: #242018;
+  --devly-border: #322c22;
+  --devly-accent: #fbbf24;
+  --devly-accent-hover: #fcd34d;
+  --devly-accent-muted: color-mix(in srgb, #fbbf24 16%, transparent);
+  --devly-shade-glow: #fbbf24;
+  --devly-shade-rim: #d97706;
+  --devly-shade-eye: #fffbeb;
+}

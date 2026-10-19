@@ -1,0 +1,16 @@
+node_modules/
+dist/
+out/
+*.vsix
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+coverage/
+.turbo/
+*.tsbuildinfo
+.vscode-test/
+apps/extension/media/webview/
+apps/extension/content/
+.pnpm-store/

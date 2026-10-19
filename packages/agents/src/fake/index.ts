@@ -1,0 +1,179 @@
+import { mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+import type {
+  AgentAvailability,
+  AuthenticationResult,
+  AgentExecutionRequest,
+  AgentExecutionResult,
+  CodingAgent,
+} from "../types.js";
+
+/**
+ * Deterministic fake agent for CI and local testing.
+ * Writes a minimal Docker HTTP lab fixture.
+ */
+export class FakeAgent implements CodingAgent {
+  id = "fake";
+  displayName = "Fake Agent (Testing)";
+  capabilities = {
+    supportsCodeGeneration: true,
+    supportsFileEditing: true,
+    supportsStreaming: true,
+    supportsSessionResume: false,
+    supportsStructuredOutput: true,
+  };
+
+  private cancelled = new Set<string>();
+
+  async detect(): Promise<AgentAvailability> {
+    return { installed: true, authenticated: true, version: "0.1.0-fake" };
+  }
+
+  async authenticate(): Promise<AuthenticationResult> {
+    return { ok: true };
+  }
+
+  async execute(request: AgentExecutionRequest): Promise<AgentExecutionResult> {
+    if (this.cancelled.has(request.executionId)) {
+      return {
+        executionId: request.executionId,
+        exitCode: null,
+        stdout: "",
+        stderr: "cancelled",
+        timedOut: false,
+        cancelled: true,
+      };
+    }
+
+    request.onStdout?.("Fake agent: planning...\n");
+    await mkdir(request.workspace, { recursive: true });
+
+    const isPlanner = request.prompt.includes("Return ONLY valid JSON") || request.prompt.includes("planning a minimal");
+    if (isPlanner) {
+      const plan = {
+        architecture: "Tiny Python HTTP server in Docker",
+        files: ["app.py", "Dockerfile", "requirements.txt", "tests/test_app.py", "devly.json", "README.md", "LESSON.md"],
+        dependencies: ["flask==3.0.3"],
+        services: [],
+        commands: [
+          { id: "setup", executable: "uv", args: ["venv"], description: "Create venv" },
+          { id: "test", executable: "uv", args: ["run", "pytest", "-q"], description: "Run tests" },
+          { id: "start", executable: "uv", args: ["run", "python", "app.py"], description: "Start server" },
+        ],
+        verificationPlan: ["GET /health returns 200", "pytest passes"],
+      };
+      request.onStdout?.(JSON.stringify(plan));
+      return {
+        executionId: request.executionId,
+        exitCode: 0,
+        stdout: JSON.stringify(plan),
+        stderr: "",
+        timedOut: false,
+        cancelled: false,
+      };
+    }
+
+    await this.writeDockerLab(request.workspace);
+    request.onStdout?.("Fake agent: wrote Docker fundamentals lab\n");
+    return {
+      executionId: request.executionId,
+      exitCode: 0,
+      stdout: "ok",
+      stderr: "",
+      timedOut: false,
+      cancelled: false,
+    };
+  }
+
+  async cancel(executionId: string): Promise<void> {
+    this.cancelled.add(executionId);
+  }
+
+  private async writeDockerLab(workspace: string): Promise<void> {
+    const files: Record<string, string> = {
+      "app.py": `from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.get("/health")
+def health():
+    return jsonify({"status": "ok", "lesson": "docker-fundamentals"})
+
+@app.get("/")
+def root():
+    return jsonify({"message": "Hello from Devly Docker lab"})
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
+`,
+      "pyproject.toml": `[project]
+name = "devly-docker-lab"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["flask==3.0.3", "pytest==8.3.5"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+`,
+      "requirements.txt": "flask==3.0.3\npytest==8.3.5\n",
+      Dockerfile: `FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
+EXPOSE 8080
+CMD ["python", "app.py"]
+`,
+      "tests/test_app.py": `from app import app
+
+def test_health():
+    client = app.test_client()
+    res = client.get("/health")
+    assert res.status_code == 200
+    assert res.get_json()["status"] == "ok"
+`,
+      "devly.json": JSON.stringify(
+        {
+          schemaVersion: 1,
+          setup: [
+            { executable: "uv", args: ["venv"], description: "Create venv" },
+            { executable: "uv", args: ["pip", "install", "-r", "requirements.txt"], description: "Install deps" },
+          ],
+          test: [{ executable: "uv", args: ["run", "pytest", "-q"], description: "Run tests" }],
+          start: [{ executable: "uv", args: ["run", "python", "app.py"], description: "Start Flask app" }],
+          stop: [],
+          healthcheck: { kind: "http", url: "http://127.0.0.1:8080/health", expectedStatus: 200 },
+          ports: [8080],
+          services: [],
+          entryFiles: ["app.py", "Dockerfile"],
+          lessonFile: "LESSON.md",
+          concepts: ["Containers", "Dockerfile", "HTTP health checks"],
+        },
+        null,
+        2,
+      ),
+      "README.md": "# Docker Fundamentals Lab\n\nGenerated by Devly Fake Agent for testing.\n",
+      "LESSON.md": `# Docker Fundamentals
+
+## What was built
+A tiny Flask HTTP app packaged with a Dockerfile.
+
+## Key files
+- \`app.py\` — HTTP server with \`/health\`
+- \`Dockerfile\` — image definition
+- \`tests/test_app.py\` — unit tests
+
+## How to run
+1. Install deps
+2. Run tests
+3. Start the app and open http://127.0.0.1:8080/health
+`,
+    };
+
+    for (const [rel, content] of Object.entries(files)) {
+      const full = path.join(workspace, rel);
+      await mkdir(path.dirname(full), { recursive: true });
+      await writeFile(full, content, "utf8");
+    }
+  }
+}

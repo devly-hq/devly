@@ -1,0 +1,10 @@
+src/**
+tsconfig.json
+esbuild.mjs
+node_modules/**
+**/*.map
+**/*.ts
+dist/**
+!dist/extension.js
+media/webview/**
+!media/webview/assets/**

@@ -1,0 +1,131 @@
+.shade-mascot {
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 0;
+  user-select: none;
+  width: var(--shade-size, 88px);
+  height: var(--shade-size, 88px);
+}
+
+.shade-mascot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.shade-idle .shade-body,
+.shade-happy .shade-body,
+.shade-explaining .shade-body {
+  transform-origin: 44px 64px;
+  animation: shadeBreathe 3.6s ease-in-out infinite;
+}
+
+.shade-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shadeBlink 4.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px var(--devly-shade-glow));
+}
+
+.shade-coding .shade-cursor,
+.shade-loading .shade-cursor {
+  animation: shadeType 0.7s steps(2) infinite;
+}
+
+.shade-celebrating,
+.shade-success {
+  animation: shadeBounce 0.7s ease-in-out infinite alternate;
+}
+
+.shade-error .shade-eye,
+.shade-error .shade-body {
+  animation: shadeErrorPulse 0.9s ease-in-out infinite;
+}
+
+.shade-thinking .shade-pupil {
+  animation: shadeLook 2.2s ease-in-out infinite;
+}
+
+.shade-sleeping .shade-zzz {
+  animation: shadeZzz 2s ease-in-out infinite;
+}
+
+@keyframes shadeBreathe {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+}
+
+@keyframes shadeBlink {
+  0%,
+  42%,
+  48%,
+  100% {
+    transform: scaleY(1);
+  }
+  45% {
+    transform: scaleY(0.15);
+  }
+}
+
+@keyframes shadeType {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes shadeBounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes shadeErrorPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes shadeLook {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes shadeZzz {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shade-mascot,
+  .shade-mascot * {
+    animation: none !important;
+  }
+}

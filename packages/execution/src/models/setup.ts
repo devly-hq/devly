@@ -1,0 +1,480 @@
+import { closeSync, mkdirSync, openSync, readFileSync } from "node:fs";
+import { mkdir, writeFile } from "node:fs/promises";
+import net from "node:net";
+import os from "node:os";
+import path from "node:path";
+import { spawn } from "node:child_process";
+import { randomBytes } from "node:crypto";
+import { defaultRunner } from "../process/runner.js";
+import { detectEnvironment } from "../env/detect.js";
+
+const MODEL_ID = /^[A-Za-z0-9][A-Za-z0-9_.-]{0,96}\/[A-Za-z0-9][A-Za-z0-9_.-]{0,96}$/;
+
+export type ModelKind = "embed" | "image" | "text";
+
+export interface ModelSetupResult {
+  labId: string;
+  directory: string;
+  demoUrl?: string;
+  live: boolean;
+  message: string;
+  downloadBytes?: number;
+}
+
+/** Hugging Face repo id from the card title or the model page URL. */
+export function huggingFaceRepoId(title: string, url: string): string | undefined {
+  const named = title.trim();
+  if (MODEL_ID.test(named)) return named;
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname !== "huggingface.co") return undefined;
+    const [owner, name] = parsed.pathname.split("/").filter(Boolean);
+    if (!owner || !name) return undefined;
+    const id = `${owner}/${name}`;
+    return MODEL_ID.test(id) ? id : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+export function estimateModelBytes(data: {
+  safetensors?: { total?: number };
+  siblings?: Array<{ rfilename?: string; size?: number }>;
+}): number | undefined {
+  const fromFiles = (data.siblings ?? [])
+    .filter((file) => /\.(safetensors|bin|gguf|onnx|msgpack)$/i.test(file.rfilename ?? ""))
+    .reduce((sum, file) => sum + (typeof file.size === "number" ? file.size : 0), 0);
+  const total = data.safetensors?.total ?? 0;
+  const bytes = Math.max(fromFiles, total);
+  return bytes > 0 ? bytes : undefined;
+}
+
+export function formatBytes(bytes: number): string {
+  if (bytes >= 1_000_000_000) return `${(bytes / 1_000_000_000).toFixed(1)} GB`;
+  if (bytes >= 1_000_000) return `${Math.round(bytes / 1_000_000)} MB`;
+  return `${Math.max(1, Math.round(bytes / 1_000))} KB`;
+}
+
+/** Rough wait for the weight download on a normal home connection. */
+export function weightWaitEstimate(bytes?: number): string {
+  if (!bytes) return "Often 1–5 minutes. A large model takes longer.";
+  const size = formatBytes(bytes);
+  const minutes = Math.max(1, Math.ceil(bytes / (6_000_000 * 60)));
+  if (minutes <= 2) return `${size} · about 1–2 minutes.`;
+  return `${size} · about ${minutes} minutes on a normal connection.`;
+}
+
+/** Which local runtime can actually run this model. */
+export function modelKind(pipeline?: string, library?: string): ModelKind {
+  const task = (pipeline ?? "").toLowerCase();
+  const lib = (library ?? "").toLowerCase();
+  if (task.includes("text-to-image") || task.includes("image-to-image") || lib.includes("diffusers")) return "image";
+  if (
+    task.includes("feature-extraction") ||
+    task.includes("sentence-similarity") ||
+    lib.includes("sentence-transformers")
+  ) {
+    return "embed";
+  }
+  return "text";
+}
+
+export function requirementLines(kind: ModelKind): string[] {
+  if (kind === "image") return ["diffusers>=0.31", "transformers>=4.46", "accelerate", "safetensors"];
+  if (kind === "embed") return ["sentence-transformers>=3.0", "transformers>=4.46", "safetensors"];
+  return ["transformers>=4.46", "accelerate", "safetensors"];
+}
+
+interface HfModelInfo {
+  pipeline_tag?: string;
+  library_name?: string;
+  safetensors?: { total?: number };
+  siblings?: Array<{ rfilename?: string; size?: number }>;
+}
+
+export async function fetchModelInfo(modelId: string): Promise<HfModelInfo | undefined> {
+  if (!MODEL_ID.test(modelId)) return undefined;
+  try {
+    const res = await fetch(`https://huggingface.co/api/models/${modelId}`, {
+      headers: { Accept: "application/json", "User-Agent": "devly" },
+      signal: AbortSignal.timeout(8_000),
+    });
+    if (!res.ok) return undefined;
+    return (await res.json()) as HfModelInfo;
+  } catch {
+    return undefined;
+  }
+}
+
+function venvPython(directory: string): string {
+  return process.platform === "win32"
+    ? path.join(directory, ".venv", "Scripts", "python.exe")
+    : path.join(directory, ".venv", "bin", "python");
+}
+
+function freePort(): Promise<number> {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer();
+    server.unref();
+    server.on("error", reject);
+    server.listen(0, "127.0.0.1", () => {
+      const address = server.address();
+      const port = typeof address === "object" && address ? address.port : 0;
+      server.close(() => resolve(port));
+    });
+  });
+}
+
+export function renderModelServer(
+  modelId: string,
+  task: string,
+  kind: ModelKind,
+  port: number,
+  hint = "The model file downloads into this Devly folder. This page says Ready when you can run it.",
+  readyHint = "The weights are loaded. Type something below and press Run.",
+): string {
+  return `"""Local page for one Hugging Face model. Generated by Devly. Do not edit by hand."""
+import json
+import threading
+import traceback
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+
+MODEL_ID = json.loads(${JSON.stringify(JSON.stringify(modelId))})
+TASK = json.loads(${JSON.stringify(JSON.stringify(task))})
+KIND = json.loads(${JSON.stringify(JSON.stringify(kind))})
+PORT = ${port}
+STATE = {"status": "loading", "detail": "Downloading the weights…"}
+
+
+def load():
+    try:
+        if KIND == "embed":
+            from sentence_transformers import SentenceTransformer
+            STATE["pipe"] = SentenceTransformer(MODEL_ID)
+        elif KIND == "image":
+            import torch
+            from diffusers import AutoPipelineForText2Image
+            STATE["pipe"] = AutoPipelineForText2Image.from_pretrained(MODEL_ID, torch_dtype=torch.float32)
+        else:
+            from transformers import pipeline
+            STATE["pipe"] = pipeline(TASK, model=MODEL_ID) if TASK else pipeline(model=MODEL_ID)
+        STATE["status"] = "ready"
+        STATE["detail"] = "Ready"
+    except Exception as exc:
+        STATE["status"] = "error"
+        STATE["detail"] = str(exc)
+        traceback.print_exc()
+
+
+def run_model(text):
+    pipe = STATE.get("pipe")
+    if KIND == "embed":
+        vector = pipe.encode(text[:500]).tolist()
+        preview = ", ".join(f"{n:.4f}" for n in vector[:8])
+        return f"{len(vector)} dimensions. First values: {preview}"
+    if KIND == "image":
+        image = pipe(text[:300], num_inference_steps=4).images[0]
+        image.save("output.png")
+        return "IMAGE"
+    if hasattr(pipe, "__call__"):
+        out = pipe(text[:500], max_new_tokens=128) if TASK in {"text-generation", "text2text-generation"} else pipe(text[:500])
+        if isinstance(out, list) and out:
+            item = out[0]
+            if isinstance(item, dict):
+                return str(item.get("generated_text") or item.get("summary_text") or item.get("translation_text") or item)
+            return str(item)
+        return str(out)
+    return "This model loaded, but Devly has no small demo for its task yet."
+
+
+PAGE = """<!doctype html>
+<meta charset="utf-8">
+<title>__MODEL__</title>
+<style>
+  body { font: 15px/1.45 system-ui, sans-serif; margin: 32px auto; max-width: 640px; color: #172026; }
+  button { padding: 8px 14px; }
+  pre { white-space: pre-wrap; }
+  .muted { color: #526068; }
+</style>
+<h1>__MODEL__</h1>
+<p id="status">Starting…</p>
+<p id="help" class="muted"></p>
+<form id="form" hidden>
+  <textarea id="text" rows="4" style="width:100%">Hello from Devly</textarea>
+  <p><button type="submit">Run</button></p>
+</form>
+<pre id="out"></pre>
+<img id="img" alt="" hidden>
+<script>
+document.getElementById("help").textContent = ${JSON.stringify(hint)};
+async function tick() {
+  const res = await fetch("/health");
+  const data = await res.json();
+  const status = document.getElementById("status");
+  const help = document.getElementById("help");
+  if (data.status === "ready") {
+    status.textContent = "Ready";
+    help.textContent = ${JSON.stringify(readyHint)};
+    document.getElementById("form").hidden = false;
+    return;
+  }
+  if (data.status === "error") {
+    status.textContent = "This model did not load";
+    help.textContent = data.detail || "Check the server log in the Devly folder.";
+    return;
+  }
+  status.textContent = "Downloading the weights";
+  setTimeout(tick, 2000);
+}
+document.getElementById("form").onsubmit = async (event) => {
+  event.preventDefault();
+  document.getElementById("out").textContent = "Running…";
+  const res = await fetch("/run", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text: document.getElementById("text").value }) });
+  const data = await res.json();
+  if (data.image) { document.getElementById("img").hidden = false; document.getElementById("img").src = "/output.png?t=" + Date.now(); document.getElementById("out").textContent = ""; }
+  else document.getElementById("out").textContent = data.text || data.error || "";
+};
+tick();
+</script>
+""".replace("__MODEL__", MODEL_ID)
+
+
+class Handler(BaseHTTPRequestHandler):
+    def log_message(self, fmt, *args):
+        return
+
+    def _send(self, code, body, content_type):
+        data = body if isinstance(body, bytes) else body.encode("utf-8")
+        self.send_response(code)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
+    def do_GET(self):
+        if self.path.startswith("/health"):
+            self._send(200, json.dumps({"status": STATE["status"], "detail": STATE["detail"]}), "application/json")
+            return
+        if self.path.startswith("/output.png"):
+            try:
+                with open("output.png", "rb") as handle:
+                    self._send(200, handle.read(), "image/png")
+            except OSError:
+                self._send(404, "missing", "text/plain")
+            return
+        self._send(200, PAGE, "text/html; charset=utf-8")
+
+    def do_POST(self):
+        if not self.path.startswith("/run"):
+            self._send(404, "missing", "text/plain")
+            return
+        if STATE["status"] != "ready":
+            self._send(409, json.dumps({"error": STATE["detail"]}), "application/json")
+            return
+        length = int(self.headers.get("Content-Length", "0"))
+        raw = self.rfile.read(min(length, 20_000))
+        try:
+            text = json.loads(raw.decode("utf-8")).get("text") or "Hello"
+            result = run_model(str(text))
+            if result == "IMAGE":
+                self._send(200, json.dumps({"image": True}), "application/json")
+            else:
+                self._send(200, json.dumps({"text": result}), "application/json")
+        except Exception as exc:
+            self._send(500, json.dumps({"error": str(exc)}), "application/json")
+
+
+if __name__ == "__main__":
+    threading.Thread(target=load, daemon=True).start()
+    ThreadingHTTPServer(("127.0.0.1", PORT), Handler).serve_forever()
+`;
+}
+
+/**
+ * Create a small local app for a Hugging Face model and start it.
+ * Weights download into the lab folder on first load. PyTorch is the CPU build.
+ */
+export async function setupHuggingFaceModel(opts: {
+  modelId: string;
+  pipeline?: string;
+  library?: string;
+  homeLabsRoot?: string;
+  onLog?: (chunk: string) => void;
+  onPhase?: (phase: string, detail: string) => void;
+  pageHint?: string;
+  readyHint?: string;
+}): Promise<ModelSetupResult> {
+  if (!MODEL_ID.test(opts.modelId)) throw new Error("That is not a Hugging Face model id");
+  const env = await detectEnvironment();
+  const python = env.python ? (process.platform === "win32" ? "python" : "python3") : undefined;
+  if (!python && !env.uv) {
+    throw new Error("Python 3 is required to set up a Hugging Face model. Install Python, then try again.");
+  }
+
+  const kind = modelKind(opts.pipeline, opts.library);
+  const home = opts.homeLabsRoot ?? path.join(os.homedir(), "DevlyLabs");
+  const slug = opts.modelId.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 48);
+  const labId = `model-${slug}-${randomBytes(3).toString("hex")}`;
+  const directory = path.join(home, "models", labId);
+  await mkdir(path.join(directory, ".devly"), { recursive: true });
+  const port = await freePort();
+  const task = opts.pipeline ?? (kind === "embed" ? "feature-extraction" : kind === "image" ? "text-to-image" : "text-generation");
+
+  opts.onPhase?.("installing", `Creating a local app for ${opts.modelId}…`);
+  await writeFile(path.join(directory, "requirements.txt"), `${requirementLines(kind).join("\n")}\n`, "utf8");
+  await writeFile(
+    path.join(directory, "serve.py"),
+    renderModelServer(opts.modelId, task, kind, port, opts.pageHint, opts.readyHint),
+    "utf8",
+  );
+  await writeFile(
+    path.join(directory, ".devly", "lab.json"),
+    JSON.stringify(
+      {
+        id: labId,
+        topicTitle: opts.modelId,
+        topicId: `hf:${opts.modelId}`,
+        directory,
+        workspaceMode: "new-window",
+        agentId: "model-setup",
+        state: "SETTING_UP",
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      null,
+      2,
+    ),
+    "utf8",
+  );
+
+  const py = venvPython(directory);
+  const log = opts.onLog ?? (() => undefined);
+  opts.onPhase?.("installing", "Installing the CPU runtime. The first model can take several minutes.");
+  const venvCmd = env.uv
+    ? { executable: "uv", args: ["venv", ".venv"] }
+    : { executable: python ?? "python3", args: ["-m", "venv", ".venv"] };
+  const venv = await defaultRunner.run(
+    { executable: venvCmd.executable, args: venvCmd.args, cwd: directory, timeoutMs: 3 * 60_000, description: "create venv" },
+    { onStdout: log, onStderr: log },
+  );
+  if (venv.exitCode !== 0) {
+    throw new Error(`Could not create a Python environment (exit ${venv.exitCode}).`);
+  }
+
+  const installTorch = env.uv
+    ? { executable: "uv", args: ["pip", "install", "--python", py, "torch", "--index-url", "https://download.pytorch.org/whl/cpu"] }
+    : { executable: py, args: ["-m", "pip", "install", "torch", "--index-url", "https://download.pytorch.org/whl/cpu"] };
+  const torch = await defaultRunner.run(
+    {
+      executable: installTorch.executable,
+      args: installTorch.args,
+      cwd: directory,
+      timeoutMs: 20 * 60_000,
+      idleTimeoutMs: 8 * 60_000,
+      description: "install cpu torch",
+    },
+    { onStdout: log, onStderr: log },
+  );
+  if (torch.exitCode !== 0 || torch.timedOut) {
+    throw new Error(torch.timedOut ? "Installing PyTorch took too long and was stopped." : "Installing PyTorch failed.");
+  }
+
+  const installRest = env.uv
+    ? { executable: "uv", args: ["pip", "install", "--python", py, "-r", "requirements.txt"] }
+    : { executable: py, args: ["-m", "pip", "install", "-r", "requirements.txt"] };
+  const rest = await defaultRunner.run(
+    {
+      executable: installRest.executable,
+      args: installRest.args,
+      cwd: directory,
+      timeoutMs: 20 * 60_000,
+      idleTimeoutMs: 8 * 60_000,
+      description: "install model libraries",
+    },
+    { onStdout: log, onStderr: log },
+  );
+  if (rest.exitCode !== 0 || rest.timedOut) {
+    throw new Error(rest.timedOut ? "Installing model libraries took too long and was stopped." : "Installing model libraries failed.");
+  }
+
+  opts.onPhase?.("starting", `Starting ${opts.modelId} on port ${port}…`);
+  const logPath = path.join(directory, ".devly", "server.log");
+  mkdirSync(path.dirname(logPath), { recursive: true });
+  const logFd = openSync(logPath, "a");
+  const child = spawn(py, ["serve.py"], {
+    cwd: directory,
+    env: {
+      ...process.env,
+      HF_HOME: path.join(directory, ".cache"),
+      HUGGINGFACE_HUB_CACHE: path.join(directory, ".cache"),
+      HF_HUB_DISABLE_TELEMETRY: "1",
+      TRANSFORMERS_NO_ADVISORY_WARNINGS: "1",
+      TOKENIZERS_PARALLELISM: "false",
+    },
+    detached: true,
+    stdio: ["ignore", logFd, logFd],
+    shell: false,
+  });
+  closeSync(logFd);
+  child.unref();
+
+  const stopExe = process.platform === "win32" ? "taskkill" : "/bin/kill";
+  const stopArgs = process.platform === "win32" ? ["/pid", String(child.pid), "/T", "/F"] : [String(child.pid)];
+  await writeFile(
+    path.join(directory, "devly.json"),
+    JSON.stringify(
+      {
+        schemaVersion: 1,
+        setup: [],
+        test: [],
+        start: [],
+        stop: child.pid ? [{ executable: stopExe, args: stopArgs, description: "Stop the model page" }] : [],
+        healthcheck: { kind: "http", url: `http://127.0.0.1:${port}/health`, expectedStatus: 200 },
+      },
+      null,
+      2,
+    ),
+    "utf8",
+  );
+
+  const demoUrl = `http://127.0.0.1:${port}/`;
+  const up = await waitForHealth(port, 20_000);
+  if (!up) {
+    let tail = "";
+    try {
+      tail = readFileSync(logPath, "utf8").trim().split("\n").slice(-4).join("\n");
+    } catch {
+      tail = "";
+    }
+    return {
+      labId,
+      directory,
+      live: false,
+      message: tail
+        ? `The model page did not stay up.\n${tail}`
+        : "The model page did not stay up. Python may still be starting; check My Labs.",
+    };
+  }
+
+  return {
+    labId,
+    directory,
+    demoUrl,
+    live: true,
+    message: `${opts.modelId} page is up. The weights are still downloading.`,
+  };
+}
+
+async function waitForHealth(port: number, timeoutMs: number): Promise<boolean> {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    try {
+      const res = await fetch(`http://127.0.0.1:${port}/health`, { signal: AbortSignal.timeout(1_500) });
+      if (res.ok) return true;
+    } catch {
+      /* process still starting */
+    }
+    await new Promise((resolve) => setTimeout(resolve, 400));
+  }
+  return false;
+}

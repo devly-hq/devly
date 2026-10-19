@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "types": ["node"],
+    "paths": {
+      "@devly/core": ["../packages/core/src/index.ts"],
+      "@devly/agents": ["../packages/agents/src/index.ts"],
+      "@devly/execution": ["../packages/execution/src/index.ts"],
+      "@devly/mascot": ["../packages/mascot/src/index.ts"],
+      "@devly/protocol": ["../packages/protocol/src/index.ts"]
+    }
+  },
+  "include": ["./**/*.ts"]
+}

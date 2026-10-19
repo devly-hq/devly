@@ -1,0 +1,732 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-14T14:29:55.068Z",
+  "date": "2026-10-14",
+  "sourcesUsed": [
+    "arxiv",
+    "github",
+    "hackernews",
+    "devto"
+  ],
+  "firecrawlUsed": false,
+  "topics": [
+    {
+      "id": "gh-1386278131",
+      "title": "Learn llm-wiki-v2: Turn your documents into a Markdown wiki that answers with citations.",
+      "description": "Turn your documents into a Markdown wiki that answers with citations. Runs locally with Ollama or any LLM provider. CROW classifier routing: 89% right note vs 62%, 2.1× faster ingest, 68% fewer tokens. (crow-hq/llm-wiki-v2)",
+      "category": "ai-engineering",
+      "tags": [
+        "RAG",
+        "LLM",
+        "citations",
+        "knowledge-base",
+        "llm",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "RAG",
+        "LLM",
+        "citations",
+        "knowledge-base"
+      ],
+      "learningObjectives": [
+        "Explain what llm-wiki-v2 is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn llm-wiki-v2: Turn your documents into a Markdown wiki that answers with citations.",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/crow-hq/llm-wiki-v2"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 93,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/crow-hq/llm-wiki-v2",
+      "source": "github",
+      "discoveredAt": "2026-10-14T14:13:49Z",
+      "scores": {
+        "uniqueness": 93,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 93,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 10,
+        "total": 91
+      }
+    },
+    {
+      "id": "gh-1397016507",
+      "title": "Learn universal-modder: Point Claude at any game. Skills, tools and the fal MCP that let Claud",
+      "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos. (rehan-remade/universal-modder)",
+      "category": "ai-engineering",
+      "tags": [
+        "MCP",
+        "age-of-empires",
+        "claude-code",
+        "claude-code-plugin",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "MCP",
+        "age-of-empires",
+        "claude-code",
+        "claude-code-plugin"
+      ],
+      "learningObjectives": [
+        "Explain what universal-modder is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn universal-modder: Point Claude at any game. Skills, tools and the fal MCP that let Claud",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/rehan-remade/universal-modder"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 100,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/rehan-remade/universal-modder",
+      "source": "github",
+      "discoveredAt": "2026-10-14T11:47:49Z",
+      "scores": {
+        "uniqueness": 92,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 100,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 89
+      }
+    },
+    {
+      "id": "gh-1409246014",
+      "title": "Learn solidcraft: SolidCraft: an open-source parametric 3D CAD application built in pure",
+      "description": "SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, web, and automation through MCP. (bherbruck/solidcraft)",
+      "category": "ai-engineering",
+      "tags": [
+        "MCP",
+        "Rust",
+        "3d-modeling",
+        "brep",
+        "cad",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "rust"
+      ],
+      "requiredTechnologies": [
+        "MCP",
+        "Rust",
+        "3d-modeling",
+        "brep"
+      ],
+      "learningObjectives": [
+        "Explain what solidcraft is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn solidcraft: SolidCraft: an open-source parametric 3D CAD application built in pure",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/bherbruck/solidcraft"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 100,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/bherbruck/solidcraft",
+      "source": "github",
+      "discoveredAt": "2026-10-14T14:20:59Z",
+      "scores": {
+        "uniqueness": 85,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 100,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 89
+      }
+    },
+    {
+      "id": "gh-1384605120",
+      "title": "A production-grade agent runtime engineered from the Harness Engineering philosophy.",
+      "description": "A production-grade agent runtime engineered from the Harness Engineering philosophy. (TencentCloud/octop-harness)",
+      "category": "ai-engineering",
+      "tags": [
+        "Agents",
+        "agent",
+        "agent-framework",
+        "agents",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "Agents",
+        "agent",
+        "agent-framework",
+        "agents"
+      ],
+      "learningObjectives": [
+        "Explain what octop-harness is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: A production-grade agent runtime engineered from the Harness Engineering philosophy.",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/TencentCloud/octop-harness"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 86,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/TencentCloud/octop-harness",
+      "source": "github",
+      "discoveredAt": "2026-10-14T12:28:04Z",
+      "scores": {
+        "uniqueness": 92,
+        "learnability": 75,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 79,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 86
+      }
+    },
+    {
+      "id": "gh-1384610841",
+      "title": "Learn octop-memory: Help your agent remember what matters. Keep preferences, carry context",
+      "description": "Help your agent remember what matters. Keep preferences, carry context across sessions, and bring your memory to the next agent. (TencentCloud/octop-memory)",
+      "category": "ai-engineering",
+      "tags": [
+        "Agents",
+        "agent",
+        "agent-memory",
+        "agent-skill",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "Agents",
+        "agent",
+        "agent-memory",
+        "agent-skill"
+      ],
+      "learningObjectives": [
+        "Explain what octop-memory is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn octop-memory: Help your agent remember what matters. Keep preferences, carry context",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/TencentCloud/octop-memory"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 84,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/TencentCloud/octop-memory",
+      "source": "github",
+      "discoveredAt": "2026-10-09T13:29:15Z",
+      "scores": {
+        "uniqueness": 86,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 45,
+        "signal": 74,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 84
+      }
+    },
+    {
+      "id": "gh-1404146358",
+      "title": "Learn agent-py: Personal AIOps engineering project with durable workflows, scoped hybr",
+      "description": "Personal AIOps engineering project with durable workflows, scoped hybrid retrieval, reliable event delivery, and verified API/browser contracts. (kkjiangk/agent-py)",
+      "category": "ai-engineering",
+      "tags": [
+        "RAG",
+        "FastAPI",
+        "Redis",
+        "Kafka",
+        "Agents",
+        "aiops",
+        "fastapi",
+        "kafka"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "RAG",
+        "FastAPI",
+        "Redis",
+        "Kafka"
+      ],
+      "learningObjectives": [
+        "Explain what agent-py is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn agent-py: Personal AIOps engineering project with durable workflows, scoped hybr",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/kkjiangk/agent-py"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 83,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/kkjiangk/agent-py",
+      "source": "github",
+      "discoveredAt": "2026-10-04T08:43:07Z",
+      "scores": {
+        "uniqueness": 86,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 25,
+        "signal": 80,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 83
+      }
+    },
+    {
+      "id": "gh-1395994653",
+      "title": "WebGPU components for React, Vue, Svelte, Solid, JS & Framer",
+      "description": "WebGPU components for React, Vue, Svelte, Solid, JS & Framer (shader-effects-inc/shaders)",
+      "category": "ai-engineering",
+      "tags": [
+        "MCP",
+        "cli",
+        "javascript",
+        "mcp",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "MCP",
+        "cli",
+        "javascript",
+        "mcp"
+      ],
+      "learningObjectives": [
+        "Explain what shaders is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: WebGPU components for React, Vue, Svelte, Solid, JS & Framer",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/shader-effects-inc/shaders"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 100,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/shader-effects-inc/shaders",
+      "source": "github",
+      "discoveredAt": "2026-10-09T13:24:56Z",
+      "scores": {
+        "uniqueness": 91,
+        "learnability": 75,
+        "actionability": 85,
+        "freshness": 45,
+        "signal": 100,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "id": "gh-1389939423",
+      "title": "Learn hello-agent-system: 👋 Hello Agent System — learn enterprise AI agent system design by bui",
+      "description": "👋 Hello Agent System — learn enterprise AI agent system design by building every production layer from scratch. 17 bilingual lessons (EN/中文) with tested exercises: tools, architectures, reliability, security, evals, distributed execution, cost, RAG, release ops. 企业级 Agent 系统设计训练营 (heaven999b/hello-agent-system)",
+      "category": "ai-engineering",
+      "tags": [
+        "RAG",
+        "LLM",
+        "Agents",
+        "agent",
+        "ai-agents",
+        "bilingual",
+        "github"
+      ],
+      "difficulty": "advanced",
+      "estimatedMinutes": 25,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "RAG",
+        "LLM",
+        "Agents",
+        "agent"
+      ],
+      "learningObjectives": [
+        "Explain what hello-agent-system is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn hello-agent-system: 👋 Hello Agent System — learn enterprise AI agent system design by bui",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/heaven999b/hello-agent-system"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 91,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/heaven999b/hello-agent-system",
+      "source": "github",
+      "discoveredAt": "2026-09-28T16:08:10Z",
+      "scores": {
+        "uniqueness": 88,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 25,
+        "signal": 91,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "id": "gh-1416341587",
+      "title": "Learn cjkfold: Fold look-alike CJK glyphs (Kangxi radicals, CJK radical supplements)",
+      "description": "Fold look-alike CJK glyphs (Kangxi radicals, CJK radical supplements) so text extracted from PDFs matches again. (cdcailf/cjkfold)",
+      "category": "ai-engineering",
+      "tags": [
+        "RAG",
+        "chinese",
+        "cjk",
+        "nfkc",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "RAG",
+        "chinese",
+        "cjk",
+        "nfkc"
+      ],
+      "learningObjectives": [
+        "Explain what cjkfold is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn cjkfold: Fold look-alike CJK glyphs (Kangxi radicals, CJK radical supplements)",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/cdcailf/cjkfold"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 82,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/cdcailf/cjkfold",
+      "source": "github",
+      "discoveredAt": "2026-10-14T01:07:35Z",
+      "scores": {
+        "uniqueness": 93,
+        "learnability": 65,
+        "actionability": 85,
+        "freshness": 85,
+        "signal": 77,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "id": "gh-1384615077",
+      "title": "Learn octop-browser: Agent-first lightweight browser automation — direct CDP, no Playwright",
+      "description": "Agent-first lightweight browser automation — direct CDP, no Playwright, more accurate and more reliable. (TencentCloud/octop-browser)",
+      "category": "ai-engineering",
+      "tags": [
+        "Agents",
+        "agent",
+        "agent-skills",
+        "agents",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "Agents",
+        "agent",
+        "agent-skills",
+        "agents"
+      ],
+      "learningObjectives": [
+        "Explain what octop-browser is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn octop-browser: Agent-first lightweight browser automation — direct CDP, no Playwright",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/TencentCloud/octop-browser"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 82,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/TencentCloud/octop-browser",
+      "source": "github",
+      "discoveredAt": "2026-10-08T07:21:26Z",
+      "scores": {
+        "uniqueness": 85,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 45,
+        "signal": 68,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "id": "gh-1395116154",
+      "title": "Learn StartLux-Decision: Open decision models from 0.8B to 27B: a calibrated probability for ev",
+      "description": "Open decision models from 0.8B to 27B: a calibrated probability for every option in one pass, and a short thought only when unsure. Engine for vLLM, llama.cpp and MLX. (StartLuxLabs/StartLux-Decision)",
+      "category": "ai-engineering",
+      "tags": [
+        "LLM",
+        "Agents",
+        "agents",
+        "calibration",
+        "classification",
+        "github"
+      ],
+      "difficulty": "intermediate",
+      "estimatedMinutes": 18,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "LLM",
+        "Agents",
+        "agents",
+        "calibration"
+      ],
+      "learningObjectives": [
+        "Explain what StartLux-Decision is for in plain language",
+        "Clone and run a minimal local example",
+        "Write one small extension or test on top of it"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Learn StartLux-Decision: Open decision models from 0.8B to 27B: a calibrated probability for ev",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://github.com/StartLuxLabs/StartLux-Decision"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 100,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://github.com/StartLuxLabs/StartLux-Decision",
+      "source": "github",
+      "discoveredAt": "2026-10-14T12:17:09Z",
+      "scores": {
+        "uniqueness": 88,
+        "learnability": 65,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 100,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 81
+      }
+    },
+    {
+      "id": "arxiv-1ca6f69da1fb",
+      "title": "Prototype idea from: Tev: Scaling Long-Horizon Agentic Environments with Dense Progress Rewards",
+      "description": "Long-horizon agents have drawn growing attention for their ability to work autonomously -- from hours to days -- on economically valuable tasks, a capability essential to automated discovery and recursive self-improvement (RSI). Yet open-source models still struggle on long-horizon tasks, largely for lack of both training data and a working recipe, and scaling both is hard: long, complex tasks are",
+      "category": "ai-engineering",
+      "tags": [
+        "Agents",
+        "arxiv"
+      ],
+      "difficulty": "advanced",
+      "estimatedMinutes": 25,
+      "languages": [
+        "python",
+        "typescript"
+      ],
+      "requiredTechnologies": [
+        "Agents"
+      ],
+      "learningObjectives": [
+        "Summarize the paper's core idea in 5 bullets",
+        "Prototype a tiny related local demo",
+        "List one limitation you observed while building"
+      ],
+      "projectRequirements": [
+        "Build a working project that teaches: Prototype idea from: Tev: Scaling Long-Horizon Agentic Environments with Dense Progress Rewards",
+        "Include automated tests",
+        "Include README.md, LESSON.md, and devly.json",
+        "Cite source: https://arxiv.org/abs/2610.18868v1"
+      ],
+      "verificationCriteria": [
+        "Project starts successfully",
+        "Automated tests pass",
+        "LESSON.md explains the concept in plain language"
+      ],
+      "evergreen": false,
+      "popularity": 81,
+      "environmentProfile": "ai",
+      "requiredServices": [],
+      "sourceUrl": "https://arxiv.org/abs/2610.18868v1",
+      "source": "arxiv",
+      "discoveredAt": "2026-10-13T17:59:51Z",
+      "scores": {
+        "uniqueness": 93,
+        "learnability": 95,
+        "actionability": 60,
+        "freshness": 85,
+        "signal": 45,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 81
+      }
+    }
+  ],
+  "quality": {
+    "candidateCount": 55,
+    "acceptedCount": 12,
+    "avgTotalScore": 84,
+    "notes": [
+      "Firecrawl skipped (set FIRECRAWL_API_KEY to enrich with scraped tutorials).",
+      "Average uniqueness 89/100 vs seed catalog.",
+      "Average learnability 87/100."
+    ]
+  }
+}

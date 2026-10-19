@@ -1,0 +1,1397 @@
+[
+  {
+    "id": "docker-fundamentals",
+    "title": "Learn Docker by containerizing an API",
+    "description": "Learn Docker by containerizing an API.",
+    "category": "devops",
+    "tags": [
+      "Docker"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "Docker"
+    ],
+    "learningObjectives": [
+      "What containers are",
+      "Images vs containers",
+      "Write a Dockerfile"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Learn Docker by containerizing an API",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 90,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "docker-compose-postgres",
+    "title": "Docker Compose with PostgreSQL",
+    "description": "Docker Compose with PostgreSQL.",
+    "category": "devops",
+    "tags": [
+      "Docker",
+      "PostgreSQL"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "Docker",
+      "PostgreSQL"
+    ],
+    "learningObjectives": [
+      "Compose services",
+      "Wire an API to Postgres"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Docker Compose with PostgreSQL",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 80,
+    "environmentProfile": "databases",
+    "requiredServices": [
+      "postgres"
+    ]
+  },
+  {
+    "id": "rag-basics",
+    "title": "Build your first RAG application",
+    "description": "Build your first RAG application.",
+    "category": "ai-engineering",
+    "tags": [
+      "embeddings",
+      "vector search"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "embeddings",
+      "vector search"
+    ],
+    "learningObjectives": [
+      "Understand embeddings",
+      "Retrieve relevant chunks",
+      "Wire retrieval to generation"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Build your first RAG application",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 95,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "mcp-server-python",
+    "title": "Build an MCP server in Python",
+    "description": "Build an MCP server in Python.",
+    "category": "agent-protocols",
+    "tags": [
+      "MCP"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "MCP"
+    ],
+    "learningObjectives": [
+      "Register tools",
+      "Handle tool calls",
+      "Test an MCP server"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Build an MCP server in Python",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 92,
+    "environmentProfile": "mcp",
+    "requiredServices": []
+  },
+  {
+    "id": "langgraph-react",
+    "title": "Build a LangGraph ReAct agent",
+    "description": "Build a LangGraph ReAct agent.",
+    "category": "ai-frameworks",
+    "tags": [
+      "LangGraph"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 20,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "LangGraph"
+    ],
+    "learningObjectives": [
+      "Agent loop",
+      "Tool calling",
+      "Graph state"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Build a LangGraph ReAct agent",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 88,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "agent-memory",
+    "title": "Add memory to an AI agent",
+    "description": "Add memory to an AI agent.",
+    "category": "ai-engineering",
+    "tags": [
+      "agents",
+      "memory"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "agents",
+      "memory"
+    ],
+    "learningObjectives": [
+      "Short-term vs long-term memory",
+      "Persist conversation state"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Add memory to an AI agent",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 85,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "semantic-search",
+    "title": "Implement semantic search with embeddings",
+    "description": "Implement semantic search with embeddings.",
+    "category": "ai-engineering",
+    "tags": [
+      "embeddings"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "embeddings"
+    ],
+    "learningObjectives": [
+      "Encode text",
+      "Similarity search",
+      "Rank results"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Implement semantic search with embeddings",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 84,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "llm-streaming",
+    "title": "Implement streaming LLM responses",
+    "description": "Implement streaming LLM responses.",
+    "category": "ai-engineering",
+    "tags": [
+      "streaming"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "python",
+      "typescript"
+    ],
+    "requiredTechnologies": [
+      "streaming"
+    ],
+    "learningObjectives": [
+      "Token streaming",
+      "SSE or websocket delivery"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Implement streaming LLM responses",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 75,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "tool-calling-agent",
+    "title": "Build a tool-calling agent",
+    "description": "Build a tool-calling agent.",
+    "category": "ai-engineering",
+    "tags": [
+      "tools"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "tools"
+    ],
+    "learningObjectives": [
+      "Define tools",
+      "Parse tool calls",
+      "Return results to the model"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Build a tool-calling agent",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 86,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "how-llms-work",
+    "title": "How do LLMs work?",
+    "description": "How do LLMs work?.",
+    "category": "ai-fundamentals",
+    "tags": [
+      "LLM"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "LLM"
+    ],
+    "learningObjectives": [
+      "Tokens and prediction",
+      "Context windows",
+      "Sampling basics"
+    ],
+    "projectRequirements": [
+      "Build a working project for: How do LLMs work?",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 90,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "embeddings-explained",
+    "title": "What are embeddings?",
+    "description": "What are embeddings?.",
+    "category": "ai-fundamentals",
+    "tags": [
+      "embeddings"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "embeddings"
+    ],
+    "learningObjectives": [
+      "Vector representations",
+      "Similarity"
+    ],
+    "projectRequirements": [
+      "Build a working project for: What are embeddings?",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 88,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "prompt-engineering",
+    "title": "Prompt engineering basics",
+    "description": "Prompt engineering basics.",
+    "category": "ai-fundamentals",
+    "tags": [
+      "prompts"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "prompts"
+    ],
+    "learningObjectives": [
+      "Clear instructions",
+      "Few-shot examples",
+      "Constraints"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Prompt engineering basics",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 82,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "transformers-attention",
+    "title": "Attention mechanisms demystified",
+    "description": "Attention mechanisms demystified.",
+    "category": "ai-fundamentals",
+    "tags": [
+      "transformers"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "transformers"
+    ],
+    "learningObjectives": [
+      "Self-attention intuition",
+      "Why attention helps"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Attention mechanisms demystified",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 70,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "fastapi-rest",
+    "title": "Build a REST API with FastAPI",
+    "description": "Build a REST API with FastAPI.",
+    "category": "backend",
+    "tags": [
+      "FastAPI"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "FastAPI"
+    ],
+    "learningObjectives": [
+      "Routes",
+      "Validation",
+      "OpenAPI"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Build a REST API with FastAPI",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 85,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "websocket-chat",
+    "title": "WebSockets chat server",
+    "description": "WebSockets chat server.",
+    "category": "backend",
+    "tags": [
+      "WebSockets"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 20,
+    "languages": [
+      "typescript",
+      "python"
+    ],
+    "requiredTechnologies": [
+      "WebSockets"
+    ],
+    "learningObjectives": [
+      "Connect clients",
+      "Broadcast messages"
+    ],
+    "projectRequirements": [
+      "Build a working project for: WebSockets chat server",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 72,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "jwt-auth",
+    "title": "JWT authentication for APIs",
+    "description": "JWT authentication for APIs.",
+    "category": "security",
+    "tags": [
+      "JWT"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "typescript",
+      "python"
+    ],
+    "requiredTechnologies": [
+      "JWT"
+    ],
+    "learningObjectives": [
+      "Issue tokens",
+      "Verify tokens",
+      "Protect routes"
+    ],
+    "projectRequirements": [
+      "Build a working project for: JWT authentication for APIs",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 80,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "oauth2-basics",
+    "title": "OAuth 2.0 authorization code flow",
+    "description": "OAuth 2.0 authorization code flow.",
+    "category": "security",
+    "tags": [
+      "OAuth"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 20,
+    "languages": [
+      "typescript"
+    ],
+    "requiredTechnologies": [
+      "OAuth"
+    ],
+    "learningObjectives": [
+      "Authorization code flow",
+      "Tokens and scopes"
+    ],
+    "projectRequirements": [
+      "Build a working project for: OAuth 2.0 authorization code flow",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 78,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "redis-caching",
+    "title": "Cache API responses with Redis",
+    "description": "Cache API responses with Redis.",
+    "category": "databases",
+    "tags": [
+      "Redis"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "Redis"
+    ],
+    "learningObjectives": [
+      "Set/get cache",
+      "TTL",
+      "Cache-aside pattern"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Cache API responses with Redis",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 80,
+    "environmentProfile": "databases",
+    "requiredServices": [
+      "redis"
+    ]
+  },
+  {
+    "id": "postgres-transactions",
+    "title": "PostgreSQL transactions",
+    "description": "PostgreSQL transactions.",
+    "category": "databases",
+    "tags": [
+      "PostgreSQL"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "PostgreSQL"
+    ],
+    "learningObjectives": [
+      "ACID basics",
+      "BEGIN/COMMIT/ROLLBACK"
+    ],
+    "projectRequirements": [
+      "Build a working project for: PostgreSQL transactions",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 74,
+    "environmentProfile": "databases",
+    "requiredServices": [
+      "postgres"
+    ]
+  },
+  {
+    "id": "vector-db-qdrant",
+    "title": "Store vectors in Qdrant",
+    "description": "Store vectors in Qdrant.",
+    "category": "databases",
+    "tags": [
+      "Qdrant"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "Qdrant"
+    ],
+    "learningObjectives": [
+      "Upsert vectors",
+      "Similarity query"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Store vectors in Qdrant",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 76,
+    "environmentProfile": "ai",
+    "requiredServices": [
+      "qdrant"
+    ]
+  },
+  {
+    "id": "terraform-intro",
+    "title": "Understand Terraform by writing a tiny stack",
+    "description": "Understand Terraform by writing a tiny stack.",
+    "category": "devops",
+    "tags": [
+      "Terraform"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "hcl"
+    ],
+    "requiredTechnologies": [
+      "Terraform"
+    ],
+    "learningObjectives": [
+      "Providers",
+      "Resources",
+      "Plan vs apply (local)"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Understand Terraform by writing a tiny stack",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 70,
+    "environmentProfile": "devops",
+    "requiredServices": []
+  },
+  {
+    "id": "github-actions-ci",
+    "title": "CI with GitHub Actions",
+    "description": "CI with GitHub Actions.",
+    "category": "devops",
+    "tags": [
+      "GitHub Actions"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "yaml"
+    ],
+    "requiredTechnologies": [
+      "GitHub Actions"
+    ],
+    "learningObjectives": [
+      "Workflows",
+      "Jobs",
+      "Run tests on PR"
+    ],
+    "projectRequirements": [
+      "Build a working project for: CI with GitHub Actions",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 77,
+    "environmentProfile": "devops",
+    "requiredServices": []
+  },
+  {
+    "id": "kafka-producer-consumer",
+    "title": "Kafka producer and consumer",
+    "description": "Kafka producer and consumer.",
+    "category": "system-design",
+    "tags": [
+      "Kafka"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 20,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "Kafka"
+    ],
+    "learningObjectives": [
+      "Publish events",
+      "Consume events",
+      "Offsets"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Kafka producer and consumer",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 73,
+    "environmentProfile": "databases",
+    "requiredServices": [
+      "kafka"
+    ]
+  },
+  {
+    "id": "rate-limiting",
+    "title": "API rate limiting strategies",
+    "description": "API rate limiting strategies.",
+    "category": "system-design",
+    "tags": [
+      "rate limiting"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "typescript",
+      "python"
+    ],
+    "requiredTechnologies": [
+      "rate limiting"
+    ],
+    "learningObjectives": [
+      "Token bucket",
+      "Fixed window"
+    ],
+    "projectRequirements": [
+      "Build a working project for: API rate limiting strategies",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 68,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "load-balancing-basics",
+    "title": "Load balancing concepts",
+    "description": "Load balancing concepts.",
+    "category": "system-design",
+    "tags": [
+      "load balancing"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "load balancing"
+    ],
+    "learningObjectives": [
+      "Round robin",
+      "Health checks"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Load balancing concepts",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 60,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "typescript-generics",
+    "title": "TypeScript generics in practice",
+    "description": "TypeScript generics in practice.",
+    "category": "programming",
+    "tags": [
+      "TypeScript"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 10,
+    "languages": [
+      "typescript"
+    ],
+    "requiredTechnologies": [
+      "TypeScript"
+    ],
+    "learningObjectives": [
+      "Generic functions",
+      "Constraints"
+    ],
+    "projectRequirements": [
+      "Build a working project for: TypeScript generics in practice",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 65,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "go-concurrency",
+    "title": "Go concurrency with goroutines",
+    "description": "Go concurrency with goroutines.",
+    "category": "programming",
+    "tags": [
+      "Go"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "go"
+    ],
+    "requiredTechnologies": [
+      "Go"
+    ],
+    "learningObjectives": [
+      "Goroutines",
+      "Channels"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Go concurrency with goroutines",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 70,
+    "environmentProfile": "go",
+    "requiredServices": []
+  },
+  {
+    "id": "python-async",
+    "title": "Async Python with asyncio",
+    "description": "Async Python with asyncio.",
+    "category": "programming",
+    "tags": [
+      "asyncio"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "asyncio"
+    ],
+    "learningObjectives": [
+      "async/await",
+      "Gather tasks"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Async Python with asyncio",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 72,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "rust-ownership",
+    "title": "Rust ownership basics",
+    "description": "Rust ownership basics.",
+    "category": "programming",
+    "tags": [
+      "Rust"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "rust"
+    ],
+    "requiredTechnologies": [
+      "Rust"
+    ],
+    "learningObjectives": [
+      "Ownership",
+      "Borrowing"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Rust ownership basics",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 55,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "serverless-functions",
+    "title": "Serverless function basics",
+    "description": "Serverless function basics.",
+    "category": "cloud",
+    "tags": [
+      "serverless"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "typescript"
+    ],
+    "requiredTechnologies": [
+      "serverless"
+    ],
+    "learningObjectives": [
+      "Handlers",
+      "Cold starts"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Serverless function basics",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 60,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "aws-s3-basics",
+    "title": "Object storage patterns (S3-like)",
+    "description": "Object storage patterns (S3-like).",
+    "category": "cloud",
+    "tags": [
+      "S3"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "S3"
+    ],
+    "learningObjectives": [
+      "Put/get objects",
+      "Presigned URLs concept"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Object storage patterns (S3-like)",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 62,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "langchain-chains",
+    "title": "LangChain chains primer",
+    "description": "LangChain chains primer.",
+    "category": "ai-frameworks",
+    "tags": [
+      "LangChain"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "LangChain"
+    ],
+    "learningObjectives": [
+      "Compose prompts and models"
+    ],
+    "projectRequirements": [
+      "Build a working project for: LangChain chains primer",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 74,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "llamaindex-rag",
+    "title": "LlamaIndex RAG quickstart",
+    "description": "LlamaIndex RAG quickstart.",
+    "category": "ai-frameworks",
+    "tags": [
+      "LlamaIndex"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "LlamaIndex"
+    ],
+    "learningObjectives": [
+      "Index documents",
+      "Query engine"
+    ],
+    "projectRequirements": [
+      "Build a working project for: LlamaIndex RAG quickstart",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 70,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "crewai-multiagent",
+    "title": "Multi-agent workflow with CrewAI",
+    "description": "Multi-agent workflow with CrewAI.",
+    "category": "ai-frameworks",
+    "tags": [
+      "CrewAI"
+    ],
+    "difficulty": "advanced",
+    "estimatedMinutes": 20,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "CrewAI"
+    ],
+    "learningObjectives": [
+      "Agents",
+      "Tasks",
+      "Crew"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Multi-agent workflow with CrewAI",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 58,
+    "environmentProfile": "ai",
+    "requiredServices": []
+  },
+  {
+    "id": "mcp-auth",
+    "title": "MCP authentication patterns",
+    "description": "MCP authentication patterns.",
+    "category": "agent-protocols",
+    "tags": [
+      "MCP"
+    ],
+    "difficulty": "advanced",
+    "estimatedMinutes": 20,
+    "languages": [
+      "typescript"
+    ],
+    "requiredTechnologies": [
+      "MCP"
+    ],
+    "learningObjectives": [
+      "Auth between client and server"
+    ],
+    "projectRequirements": [
+      "Build a working project for: MCP authentication patterns",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 50,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "agent-skills-day",
+    "title": "Skill of the day: structured code review",
+    "description": "Skill of the day: structured code review.",
+    "category": "agent-protocols",
+    "tags": [
+      "skills"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "markdown"
+    ],
+    "requiredTechnologies": [
+      "skills"
+    ],
+    "learningObjectives": [
+      "What an agent skill is",
+      "How to invoke it safely"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Skill of the day: structured code review",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 66,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "api-security-headers",
+    "title": "Secure APIs with headers and CORS",
+    "description": "Secure APIs with headers and CORS.",
+    "category": "security",
+    "tags": [
+      "security"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "typescript"
+    ],
+    "requiredTechnologies": [
+      "security"
+    ],
+    "learningObjectives": [
+      "CORS",
+      "Security headers"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Secure APIs with headers and CORS",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 64,
+    "environmentProfile": "node",
+    "requiredServices": []
+  },
+  {
+    "id": "secrets-management",
+    "title": "Secrets management basics",
+    "description": "Secrets management basics.",
+    "category": "security",
+    "tags": [
+      "secrets"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 10,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "secrets"
+    ],
+    "learningObjectives": [
+      "Env vars",
+      "Never commit secrets"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Secrets management basics",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 70,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "observability-tracing",
+    "title": "Add tracing to an app",
+    "description": "Add tracing to an app.",
+    "category": "devops",
+    "tags": [
+      "OpenTelemetry"
+    ],
+    "difficulty": "intermediate",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python"
+    ],
+    "requiredTechnologies": [
+      "OpenTelemetry"
+    ],
+    "learningObjectives": [
+      "Spans",
+      "Export traces"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Add tracing to an app",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": true,
+    "popularity": 60,
+    "environmentProfile": "python",
+    "requiredServices": []
+  },
+  {
+    "id": "trending-repo-tour",
+    "title": "Break down a trending open-source repo",
+    "description": "Break down a trending open-source repo.",
+    "category": "open-source",
+    "tags": [
+      "github"
+    ],
+    "difficulty": "beginner",
+    "estimatedMinutes": 15,
+    "languages": [
+      "python",
+      "typescript"
+    ],
+    "requiredTechnologies": [
+      "github"
+    ],
+    "learningObjectives": [
+      "Map architecture",
+      "Find entry points",
+      "Run locally"
+    ],
+    "projectRequirements": [
+      "Build a working project for: Break down a trending open-source repo",
+      "Include automated tests",
+      "Include README.md, LESSON.md, and devly.json"
+    ],
+    "verificationCriteria": [
+      "Project starts successfully",
+      "Automated tests pass"
+    ],
+    "evergreen": false,
+    "popularity": 55,
+    "environmentProfile": "python",
+    "requiredServices": []
+  }
+]

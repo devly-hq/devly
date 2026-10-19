@@ -1,0 +1,236 @@
+{
+  "generatedAt": "2026-10-14T14:29:55.068Z",
+  "sourcesUsed": [
+    "arxiv",
+    "github",
+    "hackernews",
+    "devto"
+  ],
+  "firecrawlUsed": false,
+  "candidates": 55,
+  "accepted": 12,
+  "avgTotalScore": 84,
+  "notes": [
+    "Firecrawl skipped (set FIRECRAWL_API_KEY to enrich with scraped tutorials).",
+    "Average uniqueness 89/100 vs seed catalog.",
+    "Average learnability 87/100."
+  ],
+  "topics": [
+    {
+      "title": "Learn llm-wiki-v2: Turn your documents into a Markdown wiki that answers with citations.",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/crow-hq/llm-wiki-v2",
+      "scores": {
+        "uniqueness": 93,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 93,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 10,
+        "total": 91
+      }
+    },
+    {
+      "title": "Learn universal-modder: Point Claude at any game. Skills, tools and the fal MCP that let Claud",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/rehan-remade/universal-modder",
+      "scores": {
+        "uniqueness": 92,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 100,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 89
+      }
+    },
+    {
+      "title": "Learn solidcraft: SolidCraft: an open-source parametric 3D CAD application built in pure",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/bherbruck/solidcraft",
+      "scores": {
+        "uniqueness": 85,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 100,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 89
+      }
+    },
+    {
+      "title": "A production-grade agent runtime engineered from the Harness Engineering philosophy.",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/TencentCloud/octop-harness",
+      "scores": {
+        "uniqueness": 92,
+        "learnability": 75,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 79,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 86
+      }
+    },
+    {
+      "title": "Learn octop-memory: Help your agent remember what matters. Keep preferences, carry context",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/TencentCloud/octop-memory",
+      "scores": {
+        "uniqueness": 86,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 45,
+        "signal": 74,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 84
+      }
+    },
+    {
+      "title": "Learn agent-py: Personal AIOps engineering project with durable workflows, scoped hybr",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/kkjiangk/agent-py",
+      "scores": {
+        "uniqueness": 86,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 25,
+        "signal": 80,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 83
+      }
+    },
+    {
+      "title": "WebGPU components for React, Vue, Svelte, Solid, JS & Framer",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/shader-effects-inc/shaders",
+      "scores": {
+        "uniqueness": 91,
+        "learnability": 75,
+        "actionability": 85,
+        "freshness": 45,
+        "signal": 100,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "title": "Learn hello-agent-system: 👋 Hello Agent System — learn enterprise AI agent system design by bui",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "advanced",
+      "sourceUrl": "https://github.com/heaven999b/hello-agent-system",
+      "scores": {
+        "uniqueness": 88,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 25,
+        "signal": 91,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "title": "Learn cjkfold: Fold look-alike CJK glyphs (Kangxi radicals, CJK radical supplements)",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/cdcailf/cjkfold",
+      "scores": {
+        "uniqueness": 93,
+        "learnability": 65,
+        "actionability": 85,
+        "freshness": 85,
+        "signal": 77,
+        "clarity": 100,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "title": "Learn octop-browser: Agent-first lightweight browser automation — direct CDP, no Playwright",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/TencentCloud/octop-browser",
+      "scores": {
+        "uniqueness": 85,
+        "learnability": 95,
+        "actionability": 85,
+        "freshness": 45,
+        "signal": 68,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 82
+      }
+    },
+    {
+      "title": "Learn StartLux-Decision: Open decision models from 0.8B to 27B: a calibrated probability for ev",
+      "source": "github",
+      "category": "ai-engineering",
+      "difficulty": "intermediate",
+      "sourceUrl": "https://github.com/StartLuxLabs/StartLux-Decision",
+      "scores": {
+        "uniqueness": 88,
+        "learnability": 65,
+        "actionability": 85,
+        "freshness": 100,
+        "signal": 100,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 81
+      }
+    },
+    {
+      "title": "Prototype idea from: Tev: Scaling Long-Horizon Agentic Environments with Dense Progress Rewards",
+      "source": "arxiv",
+      "category": "ai-engineering",
+      "difficulty": "advanced",
+      "sourceUrl": "https://arxiv.org/abs/2610.18868v1",
+      "scores": {
+        "uniqueness": 93,
+        "learnability": 95,
+        "actionability": 60,
+        "freshness": 85,
+        "signal": 45,
+        "clarity": 75,
+        "categoryFit": 90,
+        "diversityBonus": 0,
+        "total": 81
+      }
+    }
+  ]
+}

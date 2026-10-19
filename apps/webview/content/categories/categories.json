@@ -1,0 +1,14 @@
+[
+  { "id": "ai-fundamentals", "name": "AI Fundamentals", "description": "How LLMs, tokens, embeddings, and transformers work" },
+  { "id": "ai-engineering", "name": "AI Engineering", "description": "RAG, agents, memory, evaluations, observability" },
+  { "id": "ai-frameworks", "name": "AI Frameworks", "description": "LangChain, LangGraph, LlamaIndex, CrewAI, and more" },
+  { "id": "agent-protocols", "name": "Agent Protocols", "description": "MCP, A2A, skills, and tool discovery" },
+  { "id": "backend", "name": "Backend", "description": "APIs, auth, caching, queues, workers" },
+  { "id": "databases", "name": "Databases", "description": "SQL, NoSQL, vector DBs, indexing, transactions" },
+  { "id": "devops", "name": "DevOps", "description": "Docker, Kubernetes, Terraform, CI/CD" },
+  { "id": "cloud", "name": "Cloud", "description": "AWS, GCP, Azure, serverless patterns" },
+  { "id": "system-design", "name": "System Design", "description": "Distributed systems, Kafka, caching, observability" },
+  { "id": "programming", "name": "Programming", "description": "Language fundamentals and practical patterns" },
+  { "id": "security", "name": "Security", "description": "OAuth, JWT, encryption, API security" },
+  { "id": "open-source", "name": "Open Source", "description": "Trending repos, architectures, releases" }
+]

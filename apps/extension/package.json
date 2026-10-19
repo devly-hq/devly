@@ -1,0 +1,185 @@
+{
+  "name": "devly",
+  "displayName": "Devly",
+  "description": "A home for curious developers. Learn something new. Build it. Run it. Understand it — with Shade.",
+  "version": "0.1.0",
+  "publisher": "devly",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Education",
+    "Other"
+  ],
+  "keywords": [
+    "learning",
+    "ai",
+    "docker",
+    "rag",
+    "mcp",
+    "education",
+    "shade",
+    "devly"
+  ],
+  "activationEvents": [
+    "onView:devly.sidebar",
+    "onStartupFinished",
+    "onCommand:devly.openDashboard"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "devly",
+          "title": "Devly",
+          "icon": "resources/shade.svg"
+        }
+      ]
+    },
+    "views": {
+      "devly": [
+        {
+          "type": "webview",
+          "id": "devly.sidebar",
+          "name": "Shade"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "devly.openDashboard",
+        "title": "Devly: Open Dashboard"
+      },
+      {
+        "command": "devly.showTodayNudge",
+        "title": "Devly: Show Today's Nudge"
+      },
+      {
+        "command": "devly.startLab",
+        "title": "Devly: Start Lab"
+      },
+      {
+        "command": "devly.customTopic",
+        "title": "Devly: Custom Topic"
+      },
+      {
+        "command": "devly.myLabs",
+        "title": "Devly: My Labs"
+      },
+      {
+        "command": "devly.explainSelection",
+        "title": "Ask Shade: Explain this"
+      },
+      {
+        "command": "devly.stopServices",
+        "title": "Devly: Stop Lab Services"
+      },
+      {
+        "command": "devly.deleteLab",
+        "title": "Devly: Delete Lab"
+      },
+      {
+        "command": "devly.resetOnboarding",
+        "title": "Devly: Reset Onboarding"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "devly.explainSelection",
+          "group": "devly",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Devly",
+      "properties": {
+        "devly.defaultAgent": {
+          "type": "string",
+          "default": "",
+          "description": "Default coding agent id (claude-code, codex, cursor, fake, manual, byok, ollama)"
+        },
+        "devly.maxRepairAttempts": {
+          "type": "number",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 10
+        },
+        "devly.dailySuggestions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show Shade's once/twice-daily learning nudge (you don't need to open the sidebar)."
+        },
+        "devly.nudgeStyle": {
+          "type": "string",
+          "enum": ["branded", "modal", "toast"],
+          "default": "branded",
+          "description": "How Shade nudges you. branded = Shade card with mascot (default). modal = centered dialog. toast = corner notification."
+        },
+        "devly.enableDiscoverySources": {
+          "type": "boolean",
+          "default": true,
+          "description": "Fetch real trending topics from HN/GitHub/arXiv/Dev.to (and optional remote daily feed). Seed catalog remains the offline backup."
+        },
+        "devly.dailyFeedUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Optional HTTPS URL to a Firecrawl-enriched daily.json published by your Devly backend/CI. Leave empty to discover live from public APIs."
+        },
+        "devly.firecrawlApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Optional Firecrawl API key for live news and topic search. Prefer FIRECRAWL_API_KEY in the repo .env. Never commit the key."
+        },
+        "devly.githubToken": {
+          "type": "string",
+          "default": "",
+          "description": "Optional GitHub token for higher search rate limits. Prefer GITHUB_TOKEN in the repo .env."
+        },
+        "devly.byokProvider": {
+          "type": "string",
+          "enum": [
+            "openai",
+            "anthropic"
+          ],
+          "default": "anthropic"
+        },
+        "devly.homeLabsRoot": {
+          "type": "string",
+          "default": "",
+          "description": "Override ~/DevlyLabs path"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo ok",
+    "package": "vsce package --no-dependencies -o ../../devly.vsix"
+  },
+  "dependencies": {
+    "@devly/agents": "workspace:*",
+    "@devly/core": "workspace:*",
+    "@devly/execution": "workspace:*",
+    "@devly/mascot": "workspace:*",
+    "@devly/protocol": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/vscode": "^1.96.0",
+    "@vscode/vsce": "^3.3.2",
+    "esbuild": "^0.25.1",
+    "typescript": "^5.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devly-hq/devly.git"
+  },
+  "icon": "resources/devly-icon.png"
+}

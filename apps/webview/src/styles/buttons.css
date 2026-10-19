@@ -1,0 +1,89 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--devly-radius-sm);
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: background var(--devly-ease), border-color var(--devly-ease), color var(--devly-ease),
+    transform var(--devly-ease), opacity var(--devly-ease);
+}
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--devly-accent);
+  color: #041416;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--devly-accent-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--devly-accent);
+  border: 1px solid var(--devly-accent);
+  border-radius: var(--devly-radius-sm);
+  padding: 6px 10px;
+  font-family: var(--devly-mono);
+  font-size: 11px;
+  letter-spacing: 0.01em;
+}
+.btn-outline:hover:not(:disabled) {
+  background: var(--devly-accent-muted);
+  color: var(--devly-accent-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--devly-text);
+  border: 1px solid var(--devly-border);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--devly-hover);
+  border-color: color-mix(in srgb, var(--devly-border) 50%, var(--devly-accent));
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--devly-text-secondary);
+  border: 1px solid transparent;
+  padding: 6px 8px;
+}
+.btn-ghost:hover:not(:disabled) {
+  color: var(--devly-text);
+  background: var(--devly-hover);
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: var(--devly-radius-sm);
+  background: transparent;
+  border: 1px solid var(--devly-border);
+  color: var(--devly-text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--devly-ease);
+}
+.btn-icon:hover {
+  color: var(--devly-text);
+  background: var(--devly-hover);
+  border-color: color-mix(in srgb, var(--devly-border) 50%, var(--devly-accent));
+}

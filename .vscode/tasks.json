@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-devly",
+      "type": "shell",
+      "command": "node packages/protocol/node_modules/typescript/bin/tsc -p packages/protocol/tsconfig.json && node node_modules/typescript/bin/tsc -p packages/core/tsconfig.json && node node_modules/typescript/bin/tsc -p packages/mascot/tsconfig.json && node node_modules/typescript/bin/tsc -p packages/execution/tsconfig.json && node node_modules/typescript/bin/tsc -p packages/agents/tsconfig.json && cd apps/webview && npx vite build && cd ../extension && node esbuild.mjs",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

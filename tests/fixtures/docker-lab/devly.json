@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "setup": [
+    {
+      "executable": "python",
+      "args": ["-m", "pip", "install", "-r", "requirements.txt"],
+      "description": "Install deps"
+    }
+  ],
+  "test": [
+    {
+      "executable": "python",
+      "args": ["-m", "pytest", "-q"],
+      "description": "Run tests"
+    }
+  ],
+  "start": [
+    {
+      "executable": "python",
+      "args": ["app.py"],
+      "description": "Start Flask app"
+    }
+  ],
+  "stop": [],
+  "healthcheck": {
+    "kind": "http",
+    "url": "http://127.0.0.1:8080/health",
+    "expectedStatus": 200
+  },
+  "ports": [8080],
+  "services": [],
+  "entryFiles": ["app.py", "Dockerfile"],
+  "lessonFile": "LESSON.md",
+  "concepts": ["Containers", "Dockerfile", "HTTP health checks"]
+}

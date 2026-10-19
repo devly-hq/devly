@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install
+      - name: Ensure esbuild binary
+        run: |
+          ESBUILD_DIR=$(ls -d node_modules/.pnpm/esbuild@*/node_modules/esbuild | head -1)
+          node "$ESBUILD_DIR/install.js"
+      - name: Build packages
+        run: |
+          npx tsc -p packages/protocol/tsconfig.json
+          npx tsc -p packages/core/tsconfig.json
+          npx tsc -p packages/mascot/tsconfig.json
+          npx tsc -p packages/execution/tsconfig.json
+          npx tsc -p packages/agents/tsconfig.json
+      - name: Build webview + extension
+        run: |
+          cd apps/webview && npx vite build
+          cd ../extension && node esbuild.mjs
+      - name: Unit tests
+        run: npx vitest run tests/unit
+      - name: Integration tests
+        run: npx vitest run tests/integration
+      - name: Package VSIX
+        run: |
+          cd apps/extension
+          npx vsce package --no-dependencies -o ../../devly.vsix
+      - name: Upload VSIX
+        uses: actions/upload-artifact@v4
+        with:
+          name: devly-vsix
+          path: devly.vsix
+      - name: Dependency audit
+        run: pnpm audit --prod || true
