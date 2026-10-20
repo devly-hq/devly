@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Store screenshots use a public image address that loads on Open VSX
+
 ## 0.1.3
 
 - Store screenshots load from the public repository
