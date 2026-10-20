@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.3
+
+- Store screenshots load from the public repository
+
+## 0.1.2
+
+- The store page explains how to start: Today, Try Live, and Let's Build
+- Screenshots show the sidebar and a finished lesson page
+
+## 0.1.1
+
+- A finished lesson opens beside the editor and shows a notification with the local page address
+- Lesson installs use a project virtual environment instead of the system Python
+- Try Live treats a running repo server as ready and opens that page
+
 ## 0.1.0
 
 - Shade sidebar with daily picks, Explore, Labs, and a daily nudge

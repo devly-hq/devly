@@ -1,34 +1,52 @@
 # Devly
 
-A home for curious developers. Learn something new, run a real project, and understand the files — with Shade.
+Devly lives in the sidebar of VS Code and Cursor. You pick something you want to understand. Devly runs a real project on your computer, then opens a short lesson next to the files.
 
-## What you can do
+Shade is the guide in that sidebar.
 
-- **Today.** Four picks that change each calendar day: trending GitHub repositories, a discovery topic, and a seed lesson.
-- **Try Live.** Clone that exact GitHub repository and run it on your computer. Docker starts when the project needs it. Shade then opens a lesson: what the project does, how it was started, and the important files.
-- **Explore.** Search GitHub and Hugging Face live. A model can be set up locally with one confirmation. News cards stay links.
-- **Let's Build.** Shade builds a small lab for a topic, runs it, and writes the lesson.
-- **Daily nudge.** Up to two reminders a day, in the morning and the afternoon.
+## Start here
 
-## How lists stay current
+1. Click the Devly icon on the activity bar. Shade is waiting on **Today**.
 
-- GitHub Trending is read from the public daily page. A new calendar day always fetches again. Within the same day, Refresh pulls a new copy after 15 minutes.
-- Discovery (news and topics) refreshes on a new day, and within the day after 30 minutes.
-- Search calls GitHub and Hugging Face when you type. It does not reuse yesterday's results.
+![Devly sidebar. Shade says hello above Today's Picks.](https://github.com/devly-hq/devly/raw/main/apps/extension/images/sidebar-today.png)
 
-## Privacy
+2. A card is either a GitHub repository or a topic. **Try Live** clones that repository and runs it. **Let's Build** asks Shade to write a small lesson for the topic.
 
-Preferences, labs, and caches stay on your machine. Devly does not send telemetry. Optional API keys stay in VS Code secret storage or a local `.env` that is not packaged.
+![Today's cards. One button says Try Live and another says Let's Build.](https://github.com/devly-hq/devly/raw/main/apps/extension/images/sidebar-choices.png)
 
-Try Live runs third-party code only after you confirm. Docker may ask for your system password once, through the normal Docker installer.
+3. Confirm once. Devly does the clone or the writing, then the install, the tests, and the start. You do not need a terminal.
+4. When it finishes, the lesson opens beside the editor. A notification at the bottom right shows the local page address and **Open the app**.
 
-## Requirements
+The project is saved in its own folder under `DevlyLabs` and opens in a new window.
+
+## What a finished lesson looks like
+
+This is a lesson about caching API responses. The page stays empty until you click. Each button calls the app, which talks to Redis on your machine and prints the result.
+
+![A Devly lesson page. The heading is What is this project. Three buttons call Redis and the result is shown below.](https://github.com/devly-hq/devly/raw/main/apps/extension/images/finished-lesson.png)
+
+- **Set and get** stores a value in Redis and reads it back.
+- **Set with TTL** stores a value that Redis deletes after 20 seconds.
+- **Cache-aside fetch** calls a slow stand-in API once, saves the response, and the next click reads the saved copy.
+
+## Two ways to learn
+
+**Try this repo.** Devly clones that exact GitHub repository and runs it. If the repository needs Docker, Devly starts Docker. You confirm before anything is downloaded.
+
+**Let's build.** You pick a topic. Shade writes a small project, installs its dependencies in that folder, runs the tests, and starts a page on this computer. The lesson names the files that matter and what to click.
+
+**Explore** is there when you want to search GitHub or Hugging Face yourself. A model can be set up locally after you confirm the download size. News cards stay links.
+
+**Today** changes with the calendar day. Refresh shows another set of cards. Devly can also nudge you twice a day, once in the morning and once in the afternoon. Clicking a nudge opens Devly and starts that project.
+
+## Before you start
 
 - VS Code or Cursor 1.96 or newer
-- Git, for Try Live
-- Docker, only for projects that ship a Compose file or Dockerfile
-- Python 3, only for local Hugging Face model pages
-- An optional coding agent (Claude Code, Codex, or Cursor) for Let's Build and for repairing a failed run
+- Git, to run a GitHub repository
+- Docker, only when that repository includes a Dockerfile or Compose file
+- Cursor, Claude Code, or Codex, only when you want Shade to write a lesson. Running a repository does not need one.
+
+Your preferences and projects stay on this computer. Devly does not send telemetry.
 
 ## License
 
